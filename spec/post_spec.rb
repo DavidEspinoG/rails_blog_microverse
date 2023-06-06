@@ -32,13 +32,13 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
-  context 'update_post_counter' do 
-    it 'should increment posts_counter by one' do 
+  context 'update_post_counter' do
+    it 'should increment posts_counter by one' do
       expect(subject.update_post_counter.posts_counter).to eq(user.posts_counter + 1)
     end
   end
 
-  context 'five_most_recent_comments' do 
+  context 'five_most_recent_comments' do
     it 'should return maximum five elements' do
       post2.save
       post3.save
@@ -49,5 +49,4 @@ RSpec.describe Post, type: :model do
       expect(subject.five_most_recent_comments.length).to be <= 5
     end
   end
-
 end
