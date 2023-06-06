@@ -12,4 +12,9 @@ class Post < ApplicationRecord
     end
     @author.save
   end
+
+  def five_most_recent_comments
+    self.comments.limit(5).order(created_at: :desc)
+  end
+
 end
