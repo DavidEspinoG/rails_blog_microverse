@@ -1,6 +1,9 @@
 <h1>List all users</h1>
 
 <% @users.each do |user| %>
-  <p>Name: <%= user.name %><p>
-  <p>Number of posts: <%= user.posts.count%></p>
+  <div>
+    <h2>Name: <%= user.name %></h2>
+    <p>Number of posts: <%= user.posts.count%></p>
+    <%= link_to 'User details', "/users/#{user.id}" %>
+  </div>
 <% end %> 
