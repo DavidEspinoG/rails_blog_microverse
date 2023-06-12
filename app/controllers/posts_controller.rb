@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  def list
+  def index
     @id = params[:id]
   end
 

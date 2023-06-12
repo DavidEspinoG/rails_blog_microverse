@@ -10,7 +10,7 @@ RSpec.describe 'Users' do
       expect(body).to match('<h1>List all users</h1>')
     end
     it 'shows the correct template' do
-      expect(response).to render_template('list')
+      expect(response).to render_template('index')
     end
   end
   describe 'GET /show' do
