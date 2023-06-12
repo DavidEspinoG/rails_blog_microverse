@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Users', type: :system do
   describe 'GET /index' do
-    pending "add some examples (or delete) #{__FILE__}"
+    it "shows the static text" do 
+      visit 'http://localhost:3000'
+      expect(page).to have_content('List all users')
+    end
   end
 end
