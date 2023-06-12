@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
-  def list 
+  def list; end
 
-  end
-
-  def show 
+  def show
     @id = params[:id]
   end
-
 end
