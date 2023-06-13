@@ -1,2 +1,17 @@
-<h2>Information about post with id: <%= @post_id %></h2>
-<h2>Author: User with id <%= @user_id %></h2>
+<div>
+  <%= link_to 'Home', root_path %>
+</div>
+
+<h2>Post id: <%= @post.id %></h2>
+<span>Comments: <%= @post.comments_counter %></span>
+<span>Likes: <%= @post.comments_counter %></span>
+<p><%= @post.text %></p>
+
+<h2>Comments</h2>
+
+<% @post.comments.each do |comment| %>
+  <p>Comment author: <%= comment.author.name %></p>
+<% end %>
+<% if @post.comments.empty?%>
+  <p>This post has no comments</p>
+<% end %>
