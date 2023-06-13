@@ -1,0 +1,15 @@
+<h1>New post</h1>
+<%= form_with do |form| %>
+  <%= form.label :title, 'Title: ' %>
+  <%= form.text_field :title %>
+  <%= form.label :text, 'Content: ' %>
+  <%= form.text_field :text %>
+  <%= form.submit %>
+<% end %>
+<%  @post.errors.full_messages_for(:title).each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<div>
+  <%= link_to 'Home', root_path %>
+</div>
