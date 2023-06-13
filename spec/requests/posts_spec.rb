@@ -7,7 +7,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response.status).to eq(200)
     end
     it 'should render the correct view ' do
-      expect(response).to render_template('list')
+      expect(response).to render_template('index')
     end
     it 'should render the correct text' do
       expect(body).to match('<h2>Posts of user with id: 10</h2>')
