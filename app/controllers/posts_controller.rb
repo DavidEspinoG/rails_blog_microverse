@@ -20,7 +20,6 @@ class PostsController < ApplicationController
       redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
     else 
       render :new, status: :unprocessable_entity
-      puts @post.errors.full_messages_for(:title).class
     end
   end
 

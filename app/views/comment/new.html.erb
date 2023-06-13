@@ -1,0 +1,17 @@
+<h2>Create a new comment for the  post '<%= @post.title%>' </h2>
+
+<%= form_with do |form|%>
+  <%= form.hidden_field :author_id, value: @post.author.id  %>
+  <%= form.hidden_field :post_id, value: @post.id%>
+  <%= form.label :text, 'Content: '%>
+  <%= form.text_area :text %>
+  <%= form.submit %>
+<% end %>
+
+<%  @comment.errors.full_messages_for(:text).each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<div>
+  <%= link_to 'Home', root_path %>
+</div>
