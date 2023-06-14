@@ -4,7 +4,9 @@
 
 <h2>Post id: <%= @post.id %></h2>
 <span>Comments: <%= @post.comments_counter %></span>
-<span>Likes: <%= @post.comments_counter %></span>
+<% turbo_frame_tag 'likes_counter' do %>
+<% end %>
+  <span>Likes: <%= @post.likes_counter %></span>
 <p><%= @post.text %></p>
 
 <h2>Comments</h2>
@@ -15,3 +17,8 @@
 <% if @post.comments.empty?%>
   <p>This post has no comments</p>
 <% end %>
+<%= form_with url: '/likes/new' do |form| %>
+  <%= form.hidden_field :post_id, value: @post.id %>
+  <%= form.submit 'Like this post' %>
+<% end %>
+<%= link_to 'Create new comment', "/comment/new/#{@post.id}" %>

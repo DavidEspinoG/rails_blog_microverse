@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users' do
+  let(:user) { User.create name: 'Jose', posts_counter: 0 }
   describe 'GET /index' do
     before { get '/' }
     it 'has an status 200' do
@@ -14,15 +15,12 @@ RSpec.describe 'Users' do
     end
   end
   describe 'GET /show' do
-    before { get '/users/10' }
+    before { get "/users/#{user.id}" }
     it 'has a 200 status' do
       expect(response.status).to eq(200)
     end
     it 'renders the correct template' do
       expect(response).to render_template('show')
-    end
-    it 'shows the correct placeholder text' do
-      expect(body).to match('<h2>Info about user with id: 10</h2>')
     end
   end
 end
