@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users' do
-  let(:user) {User.create name: 'Jose', posts_counter: 0 }
+  let(:user) { User.create name: 'Jose', posts_counter: 0 }
   describe 'GET /index' do
     before { get '/' }
     it 'has an status 200' do
