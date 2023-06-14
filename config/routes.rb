@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'posts/new', to: 'posts#create'
   get 'comment/new/:post_id', to: 'comment#new' 
   post 'comment/new/:post_id', to: 'comment#create' 
+  post 'likes/new', to: 'likes#create'
   root "users#index"
 
 end
