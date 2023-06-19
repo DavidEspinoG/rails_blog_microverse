@@ -11,6 +11,11 @@ RSpec.describe 'User integration spec', type: :system do
       expect(page).to have_content('Jose')
       expect(page).to have_content('Carlos')
     end
+    it 'Should render users profile pictures' do
+      visit '/'
+      expect(page).to have_content('Jose profile picture')
+      expect(page).to have_content('Carlos profile picture')
+    end
 
     it 'Should render number of post for each user' do
       visit '/'
