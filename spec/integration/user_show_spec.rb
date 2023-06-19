@@ -4,7 +4,7 @@ RSpec.describe 'user show view', type: :system do
   let!(:user_one) { User.create name: 'Jose', posts_counter: 0 }
   let!(:user_two) { User.create name: 'Carlos', posts_counter: 0 }
   let!(:post) { Post.create author_id: user_two.id, comments_counter: 0, likes_counter: 0, title: 'title', text: 'something' }
-  
+  let!(:comment) {Comment.create author: user_one, post: post, text: 'fake comment'}
   it 'should render the user profile picture' do
     visit "users/#{user_one.id}"
     expect(page).to have_content('Jose profile picture')
@@ -46,5 +46,10 @@ RSpec.describe 'user show view', type: :system do
       click_link(href: "/users/#{user_two.id}/posts/#{post.id}")
       expect(page).to have_current_path("/users/#{user_two.id}/posts/#{post.id}")
     end
+  end
+
+  it 'should render post comments' do 
+    visit "users/#{user_two.id}/posts"
+    expect(page).to have_content('fake comment')
   end
 end
