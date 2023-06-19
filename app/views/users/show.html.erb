@@ -2,11 +2,13 @@
   <%= link_to 'Home', root_path %>
 </div>
 <h2>User Name: <%= @user.name %></h2>
-
+<div>
+  <p>(<%= @user.name %> profile picture)</p>
+</div>
 <h3>Bio:</h3>
 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit accumsan senectus molestie iaculis, pulvinar facilisi litora eu venenatis vulputate per aliquam cum commodo, himenaeos praesent maecenas montes augue varius in ornare pharetra nulla. Vitae non in duis inceptos a venenatis dis, urna at pretium habitant facilisis ac nunc, aliquet natoque proin ante ornare magnis. Commodo nullam mi lacus est consequat id phasellus sociosqu, per fermentum neque nisl ridiculus rutrum pharetra conubia, gravida dictumst torquent praesent pulvinar quisque porta.</p>
 
-<h3>Posts: </h3>
+<h3>Posts: <%= @posts.count%></h3>
 <% @posts.each do |post|%>
   <h4>Post id: <%= post.id %></h4>
   <p><%= post.text.slice(0, 45)... %><p>
