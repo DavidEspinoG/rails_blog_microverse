@@ -1,24 +1,33 @@
 require 'rails_helper'
 
-RSpec.describe 'user show view', type: :system do 
-  let!(:user_one) { User.create name: 'Jose', posts_counter: 0 }
-  let!(:user_two) { User.create name: 'Carlos', posts_counter: 0 }
-  let!(:post) { Post.create author_id: user_two.id, comments_counter: 0, likes_counter: 0, title: 'title', text: 'something' }
-  
-  it 'should render the user profile picture' do
-    visit "users/#{user_one.id}"
-    expect(page).to have_content('Jose profile picture')
-  end
-  it 'should render the user name' do
-    visit "users/#{user_one.id}"
-    expect(page).to have_content('User Name: Jose')
-  end
-  it 'should render the number of post of the user' do 
-    visit "users/#{user_two.id}"
-    expect(page).to have_content('Posts: 1')
-  end
-  it 'should render the user bio' do 
-    visit "users/#{user_two.id}"
-    expect(page).to have_content('Bio')
+RSpec.describe 'User integration spec', type: :system do
+  describe 'User index' do
+    let!(:user_one) { User.create name: 'Jose', posts_counter: 0 }
+    let!(:user_two) { User.create name: 'Carlos', posts_counter: 0 }
+    let!(:post) { Post.create author_id: user_two.id, comments_counter: 0, likes_counter: 0, title: 'title' }
+
+    it 'Should render users names' do
+      visit '/'
+      expect(page).to have_content('Jose')
+      expect(page).to have_content('Carlos')
+    end
+    it 'Should render users profile pictures' do
+      visit '/'
+      expect(page).to have_content('Jose profile picture')
+      expect(page).to have_content('Carlos profile picture')
+    end
+
+    it 'Should render number of post for each user' do
+      visit '/'
+      expect(page).to have_content('Number of posts: 0')
+      expect(page).to have_content('Number of posts: 1')
+    end
+    
+   
+    it 'should redirect to users/:id view' do
+      visit '/'
+      click_link href: "/users/#{user_one.id}"
+      expect(page).to have_current_path("/users/#{user_one.id}") 
+    end
   end
 end
