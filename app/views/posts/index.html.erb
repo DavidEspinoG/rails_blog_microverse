@@ -18,6 +18,9 @@
   <% else %>
     <p id="comments_post_<%= post.id %>">Number of comments: <%= post.comments.count %></p>
   <% end  %>
+  <% if post.comments.count > 5 %>
+    <p>Comment pagination<p>
+  <% end %>
   <p id="likes_post_<%= post.id %>">Number of likes: <%= post.likes_counter %> </p>
   <%= link_to 'Post detail', "/users/#{@user.id}/posts/#{post.id}" %>
 <% end %>
