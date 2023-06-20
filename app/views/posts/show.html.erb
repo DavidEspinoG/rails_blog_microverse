@@ -3,6 +3,7 @@
 </div>
 
 <h2>Post id: <%= @post.id %></h2>
+<h2>Post title: <%= @post.title %></h2>
 <span>Comments: <%= @post.comments_counter %></span>
 <% turbo_frame_tag 'likes_counter' do %>
 <% end %>
@@ -12,6 +13,8 @@
 <h2>Comments</h2>
 
 <% @post.comments.each do |comment| %>
+
+  <p>Comment content: <%= comment.text %></p>
   <p>Comment author: <%= comment.author.name %></p>
 <% end %>
 <% if @post.comments.empty?%>
