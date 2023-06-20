@@ -3,8 +3,8 @@
 </div>
 <p>(<%= @user.name%> profile picture)</p>
 <h2>User name: <%=  @user.name %></h2>
-<h3>Total posts: <%= @total_posts %></h3>
-<% @posts.each  do | post |%>
+<h3>Total posts: <%= @user.posts_counter %></h3>
+<% @user.posts.each  do | post |%>
   <h3>Post id: <%= post.id %></h3>
   <h4><%= post.title %></h4>
   <p><%= post.text %></p>
@@ -16,9 +16,9 @@
   <% if post.five_most_recent_comments.length < 1  %>
     <p id="comments_post_<%= post.id %>">Number of comments: 0</p>
   <% else %>
-    <p id="comments_post_<%= post.id %>">Number of comments: <%= post.comments.count %></p>
+    <p id="comments_post_<%= post.id %>">Number of comments: <%= post.comments_counter %></p>
   <% end  %>
-  <% if post.comments.count > 5 %>
+  <% if post.comments_counter > 5 %>
     <button>Comment pagination</button>
   <% end %>
   <p id="likes_post_<%= post.id %>">Number of likes: <%= post.likes_counter %> </p>

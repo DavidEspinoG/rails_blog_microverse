@@ -13,7 +13,7 @@
 <h2>Comments</h2>
 
 <% @post.comments.each do |comment| %>
-  <p>Comment author: <%= comment.author.name %></p>
+
   <p>Comment content: <%= comment.text %></p>
 <% end %>
 <% if @post.comments.empty?%>
