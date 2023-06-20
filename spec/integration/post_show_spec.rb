@@ -11,7 +11,7 @@ RSpec.describe 'post#show', type: :system do
     it 'Should show the post title' do
       visit "users/#{user_two.id}/posts/#{post.id}"
 
-      expect(page).to have_content(user_two.name)
+      expect(page).to have_content(post.title)
     end
 
     it 'Should show the post comments counter' do
