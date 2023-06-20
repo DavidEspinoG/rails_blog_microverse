@@ -6,8 +6,8 @@ RSpec.describe 'post#show', type: :system do
   let!(:post) do
     Post.create author_id: user_two.id, comments_counter: 0, likes_counter: 0, title: 'title', text: 'something'
   end
-  let!(:comment_one) { Comment.create author: user_one, post: post, text: 'hello world' }
-  let!(:comment_two) { Comment.create author: user_two, post: post, text: 'hello rails' }
+  let!(:comment_one) { Comment.create author: user_one, post:, text: 'hello world' }
+  let!(:comment_two) { Comment.create author: user_two, post:, text: 'hello rails' }
 
   describe 'Rendering' do
     it 'Should show the post title' do
