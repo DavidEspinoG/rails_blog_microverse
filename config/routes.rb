@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   # get 'users/:id', to: 'users#show'
   # get 'users/:id/posts', to: 'posts#index'
   # get 'users/:user_id/posts/:post_id', to: 'posts#show'
