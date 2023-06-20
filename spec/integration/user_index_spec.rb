@@ -22,12 +22,11 @@ RSpec.describe 'User integration spec', type: :system do
       expect(page).to have_content('Number of posts: 0')
       expect(page).to have_content('Number of posts: 1')
     end
-    
-   
+
     it 'should redirect to users/:id view' do
       visit '/'
       click_link href: "/users/#{user_one.id}"
-      expect(page).to have_current_path("/users/#{user_one.id}") 
+      expect(page).to have_current_path("/users/#{user_one.id}")
     end
   end
 end
