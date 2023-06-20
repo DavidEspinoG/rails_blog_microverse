@@ -36,6 +36,8 @@ RSpec.describe 'post#index', type: :system do
   end
   it 'should render the firsts comments' do 
     visit "users/#{user_two.id}/posts"
+    comments = find_all('.comment')
+    expect(comments.count).to be < 6
   end
 
   it 'should render the number of comments' do 
