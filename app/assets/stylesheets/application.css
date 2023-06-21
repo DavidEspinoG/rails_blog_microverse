@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --red: #b9340b;
+  --orange: #e88a25;
+  --yellow:#f9e14b;
+  --green: #7abf66;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-link {
+  text-decoration: none;
+  border: 1px solid var(--red);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--red);
+  color: white;
+}
+
+.nav-link:hover {
+  background-color: var(--orange);
+}
