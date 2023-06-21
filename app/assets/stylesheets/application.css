@@ -17,7 +17,7 @@
 :root {
   --red: #b9340b;
   --orange: #e88a25;
-  --yellow:#f9e14b;
+  --yellow: #f9e14b;
   --green: #7abf66;
 }
 
@@ -38,3 +38,17 @@
 .nav-link:hover {
   background-color: var(--orange);
 }
+
+.new_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 25px;
+}
+
