@@ -14,4 +14,11 @@ class CommentController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def destroy 
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    puts 'comment destroy'
+  end
+
 end

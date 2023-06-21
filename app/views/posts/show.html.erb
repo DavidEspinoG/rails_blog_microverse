@@ -17,7 +17,8 @@
   <p>Comment content: <%= comment.text %></p>
   <p>Comment author: <%= comment.author.name %></p>
   <% if can? :delete, comment%>
-    <%= button_to 'Delete comment' %>
+    <%= button_to 'Delete comment', "/comments/#{comment.id}", method: :delete %>
+    <p>Here I am</p>
   <% end %>
 <% end %>
 <% if @post.comments.empty?%>
