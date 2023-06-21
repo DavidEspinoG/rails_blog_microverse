@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'comment/new/:post_id', to: 'comment#new' 
   post 'comment/new/:post_id', to: 'comment#create' 
   post 'likes/new', to: 'likes#create'
+  delete 'comments/:id', to: 'comment#destroy'
+  delete 'posts/:id', to: 'posts#destroy'
   root "users#index"
 
 end
