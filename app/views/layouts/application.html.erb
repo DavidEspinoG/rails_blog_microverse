@@ -13,7 +13,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+    <% if current_user %>
+      <p>Welcome, <%= current_user.name %></p>
+      <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to 'Create new user', new_user_registration_path %>
+      <%= link_to 'I forgot my password', new_user_password_path %>
+
+    <% end %>
     <%= yield %>
   </body>
 </html>
