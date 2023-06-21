@@ -42,13 +42,21 @@
 .new_user {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   align-items: center;
+  max-width: 700px;
+  margin: 0 auto; 
 }
 
-.field {
+/* .field {
   display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-bottom: 25px;
-}
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  margin-bottom: 10px;
+} */
 
+.center {
+  text-align: center;
+}
