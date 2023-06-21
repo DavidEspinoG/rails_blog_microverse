@@ -6,6 +6,12 @@ class Ability
   def initialize(user)
 
     can :delete, Post, author: user
+    can :delete, Comment, author: user
+
+    return unless user.role == 'admin'
+    can :delete, Post
+    can :delete, Comment
+
 
     # Define abilities for the user here. For example:
     #
