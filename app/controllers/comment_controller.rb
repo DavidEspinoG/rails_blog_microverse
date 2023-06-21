@@ -15,10 +15,9 @@ class CommentController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
     puts 'comment destroy'
   end
-
 end
