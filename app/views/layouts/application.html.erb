@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <div class="navigation-container">
+      <% if current_user %>
+        
+        <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link'  %>
+        <%= link_to 'Create a new post', '/posts/new', class: 'nav-link' %>
+      <% else %>
+        <%= link_to 'Log in', new_user_session_path, class: 'nav-link' %>
+        <%= link_to 'Create new user', new_user_registration_path, class: 'nav-link' %>
+        <%= link_to 'I forgot my password', new_user_password_path, class: 'nav-link' %>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <p>Welcome, <%= current_user.name.capitalize %></p>
+    <% end %>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
