@@ -25,6 +25,7 @@
     <% if current_user %>
       <p>Welcome, <%= current_user.name.capitalize %></p>
     <% end %>
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
