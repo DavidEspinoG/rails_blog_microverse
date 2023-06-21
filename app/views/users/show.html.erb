@@ -15,6 +15,9 @@
     <p><%= post.text.slice(0, 45)... %><p>
     <span>Comments: <%= post.comments_counter %></span>
     <span>Likes: <%= post.likes_counter %></span>
+    <% if can? :delete, post%>
+      <%= button_to 'Delete post' %>
+    <% end %>
   </div>
   
 <% end %>
